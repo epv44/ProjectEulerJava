@@ -12,15 +12,12 @@ import supportingFiles.StreamUtils;
  * Implemented Spliterator.Ofint in order to avoid boxing and continue to utilize primitives.
  */
 public class Problem2 {
-    public static void main(String[] args){
-       mutableFib();
-    }   
     
     public static void mutableFib(){
         IntSupplier fib = new IntSupplier(){
             private int previous = 0;
             private int current = 1;
-
+            
             public int getAsInt(){
                 int oldPrevious = this.previous;
                 int nextValue = this.previous + this.current;
