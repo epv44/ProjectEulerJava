@@ -4,15 +4,6 @@ import java.util.stream.LongStream;
 
 
 public class Problem3 {
-    public static boolean isPrime(long number){
-        for(int i = 2; i < Math.sqrt((double) number); i++){
-            if(number % i == 0){
-                return false;
-            }
-        }
-        return true;
-    }
-    
     public static void largestPrimeFactor(){
         long number = 600851475143l;
         long candidate = (long) Math.sqrt(number);
@@ -23,5 +14,11 @@ public class Problem3 {
                 .collect(Collectors.toList());
         //goes in order will always be last value
         System.out.println(primes.get(primes.size()-1));
+    }
+    
+    public static boolean isPrime(long candidate){
+        long candidateRoot = (long) Math.sqrt((double) candidate);
+        return LongStream.rangeClosed(2, candidateRoot)
+                .noneMatch(p -> candidate % p == 0);
     }
 }
