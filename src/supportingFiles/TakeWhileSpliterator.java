@@ -22,25 +22,27 @@ class TakeWhileSpliterator<T> implements Spliterator.OfInt {
     @Override
     public boolean tryAdvance(IntConsumer action) {
         return conditionHolds && source.tryAdvance((IntConsumer)(e) -> {
-            if (conditionHolds = condition.test(e)) {
+            if (condition.test(e)) {
                 action.accept(e);
-            }
+            }else
+                conditionHolds = false;
         });
-    }
-    
-    @Override
-    public long estimateSize() {
-        return conditionHolds ? source.estimateSize() : 0;
-    }
-
-    @Override
-    public int characteristics() {
-        return source.characteristics() &~ Spliterator.SIZED;
     }
 
     @Override
     public java.util.Spliterator.OfInt trySplit() {
-        // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public long estimateSize() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public int characteristics() {
+        // TODO Auto-generated method stub
+        return 0;
     }
 }
