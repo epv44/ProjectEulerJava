@@ -28,7 +28,7 @@ public class Problem2 {
         };
         
         //filter even values and limit at 4,000,000
-       Stream<Integer> fibonacci = StreamUtils.takeWhile(IntStream.generate(fib).filter(i -> i % 2 == 0), i -> i < 4000000);
+       Stream<Integer> fibonacci = StreamUtils.takeWhile(IntStream.generate(fib).filter(i -> i % 2 == 0), i -> i < 4_000_000);
        System.out.println(fibonacci.mapToInt(i -> i).sum());
 
     }
