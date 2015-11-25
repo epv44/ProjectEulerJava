@@ -12,8 +12,8 @@ import supportingFiles.StreamUtils;
  * Implemented Spliterator.Ofint in order to avoid boxing and continue to utilize primitives.
  */
 public class Problem2 {
-    
-    public static void mutableFib(){
+
+   public static void mutableFib(){
         IntSupplier fib = new IntSupplier(){
             private int previous = 0;
             private int current = 1;
@@ -30,6 +30,5 @@ public class Problem2 {
         //filter even values and limit at 4,000,000
        Stream<Integer> fibonacci = StreamUtils.takeWhile(IntStream.generate(fib).filter(i -> i % 2 == 0), i -> i < 4_000_000);
        System.out.println(fibonacci.mapToInt(i -> i).sum());
-
     }
 }
