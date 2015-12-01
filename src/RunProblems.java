@@ -6,6 +6,7 @@ public class RunProblems {
 //        Problem1.multiples();
 //        Problem2.mutableFib();
 //        Problem3.largestPrimeFactor();
-        Problem4.largestPalindrome();
+//        Problem4.largestPalindrome();
+        Problem5.smallestMultiple();
     }
 }
